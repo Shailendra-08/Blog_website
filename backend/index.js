@@ -2,6 +2,10 @@ const express = require('express');
 const { default: mongoose } = require('mongoose');
 const app = express()
 const dotenv=require('dotenv')  // need to import
+const authRouter=require('./routes/auth');
+// const userRouter=require('./routes/user')
+const userRouter=require('./routes/user');
+
 // connection to database
 
 const connectDB=async()=>{
@@ -16,19 +20,13 @@ const connectDB=async()=>{
 
 }
 
-dotenv.config() // need to config here to work with env
 
 
 // Middleware Learning and using in the Project
-
-
-
-
-
-
-
-
-
+dotenv.config() // need to config here to work with env
+app.use(express.json())
+app.use("/api/auth/",authRouter)
+app.use("/api/user/",userRouter);
 
 
 app.listen(5000,()=>{
