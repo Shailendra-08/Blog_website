@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { BiEdit } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
+import Comments from "../components/Comments";
 
 const PostDetails = () => {
   return (
@@ -60,45 +61,18 @@ const PostDetails = () => {
         <div className="flex flex-col mt-4">
           <h3 className="mt-6 mb-4 font-semibold">Comments:</h3>
           {/* comments  */}
-          <div className="px-2 py-2 bg-gray-200 rounded-lg  my-2">
-            <div className="flex items-center justify-between">
-              <h3 className="font-bold text-gray-600">@ayushmahadule</h3>
-              <div className="flex justify-center items-center space-x-4">
-                <p className="text-gray-500 text-sm">16/6/24</p>
-                <p className="text-gray-500 text-sm">16:35</p>
-                <div className="flex items-center justify-center space-x-2">
-                  <p>
-                    <BiEdit />
-                  </p>
-                  <p>
-                    <MdDelete />{" "}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <p className="px-4 mt-2">Nice Post Bro!!!</p>
-          </div>
+          <Comments />
+          <Comments />
+          <Comments />
+
+
+          
 
           {/* comments  */}
 
-          <div className="px-2 py-2 bg-gray-200 rounded-lg my-2">
-            <div className="flex items-center justify-between">
-              <h3 className="font-bold text-gray-600">@ayushmahadule</h3>
-              <div className="flex justify-center items-center space-x-4">
-                <p className="text-gray-500 text-sm">16/6/24</p>
-                <p className="text-gray-500 text-sm">16:35</p>
-                <div className="flex items-center justify-center space-x-2">
-                  <p>
-                    <BiEdit />
-                  </p>
-                  <p>
-                    <MdDelete />{" "}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <p className="px-4 mt-2">Nice Post Bro!!!</p>
-          </div>
+          
+
+
         </div>
 
         {/* write a comments  */}
@@ -107,12 +81,6 @@ const PostDetails = () => {
             <input className="md:w-[80%] outline-none py-2 px-4 mt-4 md:mt-0" type="text" placeholder="Write a comment" />
             <button className="bg-black text-white px-4 py-2 rounded-lg md:w-[20%] mt-4 md:mt-0">Add Comment</button>
         </div>
-
-
-
-
-
-
 
       </div>
 
