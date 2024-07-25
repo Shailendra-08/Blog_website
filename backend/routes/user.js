@@ -3,13 +3,13 @@ const router=express.Router();
 const User = require('../models/User');
 const Post = require('../models/Post');
 const Comments = require('../models/Comments');
-
+const verifyToken = require('../verifyToken');
 const bcrypt = require('bcrypt')
 
 
 
 //Update
-router.put("/:id",async(req,res)=>{
+router.put("/:id",verifyToken,async(req,res)=>{
     try{
         if(req.body.password){
             const salt=await bcrypt.genSalt(10)
@@ -27,7 +27,7 @@ router.put("/:id",async(req,res)=>{
 
 //Delete
 
-router.delete("/:id",async(req,res)=>{
+router.delete("/:id",verifyToken,async(req,res)=>{
     try{
         await User.findByIdAndDelete(req.params.id)
         await Post.deleteMany({userId:req.params.id})

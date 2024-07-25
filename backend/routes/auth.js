@@ -41,10 +41,10 @@ router.post('/login' ,async(req,res)=>{
             return res.status(401).json("Wrong Credentials");
         }
         // JWT code start here
-        const token = jwt.sign({id:user._id},process.env.SECRET,{expiresIn:"3d"});
+        const token = jwt.sign({id:user._id,username:user.username,email:user.email},process.env.SECRET,{expiresIn:"3d"});
         const {password,...info}=user._doc;
         res.cookie("token",token).status(200).json(info)
-        res.status(200).json(user);
+        // res.status(200).json(user);
         
   
 
@@ -63,6 +63,22 @@ router.get("/logout",async(req,res)=>{
         res.status(500).json(err);
     }
 })
+
+// refetch user
+router.get("/refetch", (req, res) => {
+    const token = req.cookies.token;
+    if (!token) {
+        return res.status(401).json({ message: "Token not found" });
+    }
+    
+    jwt.verify(token, process.env.SECRET, {}, async (err, data) => {
+        if (err) {
+            return res.status(404).json(err);
+        }
+        res.status(200).json(data);
+    });
+});
+
 
 
 module.exports=router;

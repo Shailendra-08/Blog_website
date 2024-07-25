@@ -2,7 +2,7 @@ import React from 'react'
 
 const ProfilePost = () => {
   return (
-    <div className="w-full flex mt-8 space-x-4">
+    <div className="w-full flex mt-8 space-x-4 ">
       {/* Left */}
       <div className="w-[35%] h-[200px] flex justify-center items-center">
         <img src="https://cdn.pixabay.com/photo/2024/07/11/17/13/london-8888771_1280.jpg" alt="" className="h-full w-full object-cover" />
