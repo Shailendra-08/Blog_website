@@ -97,7 +97,7 @@ router.get("/",async(req,res)=>{
 router.get("/user/:userId",async(req,res)=>{
     try{
        const posts = await Post.find({userID:req.params.userId});
-       console.log(req.params.userId);
+    //    console.log(req.params.userId);
         res.status(200).json(posts);
 
     }catch(err){
