@@ -1,4 +1,5 @@
 import React from "react";
+import {IF} from "../url"
 
 // esline-disable react/prop-types 
 
@@ -7,7 +8,7 @@ const Homepost = ({post}) => {
     <div className="w-full flex mt-8 space-x-4 ">
       {/* Left */}
       <div className="w-[35%] h-[200px] flex justify-center items-center">
-        <img src={post.photo} alt="" className="h-full w-full object-cover" />
+        <img src={IF +  post.photo} alt="" className="h-full w-full object-cover" />
       </div>
 
       {/* Right */}
