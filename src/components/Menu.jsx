@@ -3,9 +3,11 @@ import { useContext } from 'react';
 import { UserContext } from '../context/UserContext';
 import { URL } from '../url';
 import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
 const Menu = () => {
   const {user}=useContext(UserContext);
   const {setUser}=useContext(UserContext);
+  const navigate =useNavigate();
 
 
   const handleLogout=async()=>{
@@ -13,6 +15,7 @@ const Menu = () => {
       const res = await axios.get(URL+"/api/auth/logout",{withCredentials:true});
       console.log(res);
       setUser(null)
+      navigate("/login")
     }catch(e){
       console.log(e);
     }
@@ -22,13 +25,13 @@ const Menu = () => {
   return (
     <div className='bg-black w-[200px] flex flex-col items-start absolute top-12 md:right-44 right-5 rounded-md p-4 space-y-4'>
 
-       {!user && <h3 className='text-white text-sm hover:text-gray-500 cursor-pointer'>Login</h3> } 
-        {!user && <h3 className='text-white text-sm hover:text-gray-500 cursor-pointer'>Regsiter</h3>}
+       {!user && <h3 className='text-white text-sm hover:text-gray-500 cursor-pointer'><Link to="/login">Login</Link></h3> } 
+        {!user && <h3 className='text-white text-sm hover:text-gray-500 cursor-pointer'><Link to="/login">Register</Link></h3>}
 
 
-        {user && <h3 className='text-white text-sm hover:text-gray-500  cursor-pointer'>Profile</h3>}
-        {user && <h3 className='text-white text-sm hover:text-gray-500 cursor-pointer'>Write</h3>}
-        {user && <h3 className='text-white text-sm hover:text-gray-500 cursor-pointer'>My Blog</h3>}
+        {user && <h3 className='text-white text-sm hover:text-gray-500  cursor-pointer'><Link to={"/profile"+user._id}>Profile</Link></h3>}
+        {user && <h3 className='text-white text-sm hover:text-gray-500 cursor-pointer'><Link to="/write">Write</Link></h3>}
+        {user && <h3 className='text-white text-sm hover:text-gray-500 cursor-pointer'>My-blogs</h3>}
         {user && <h3 onClick={handleLogout} className='text-white text-sm hover:text-gray-500 cursor-pointer'>Logout</h3>}
 
 
