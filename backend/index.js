@@ -30,7 +30,7 @@ const connectDB=async()=>{
 
 // Middleware Learning and using in the Project
 dotenv.config() // need to config here to work with env
-app.use(cors({origin:"https://blogwebsite-nu-jade.vercel.app/",credentials:true}))
+app.use(cors())
 app.use("/images",express.static(path.join(__dirname,"/images")))
 app.use(express.json())
 app.use(cookieParser())
