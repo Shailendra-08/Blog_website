@@ -60,7 +60,7 @@ const PostDetails = () => {
   const handleDeletePost = async () => {
     try {
       const res = await axios.delete(URL + "/api/post/" + postId, {
-        withCredentials: true,
+        
       });
       // console.log(res.data)
       navigate("/");
