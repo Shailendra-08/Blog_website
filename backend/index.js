@@ -30,7 +30,13 @@ const connectDB=async()=>{
 
 // Middleware Learning and using in the Project
 dotenv.config() // need to config here to work with env
-app.use(cors())
+// app.use(cors())
+app.use(cors({
+    origin: "*", // Adjust based on your frontend URL
+    credentials: true
+  }));
+
+
 app.use("/images",express.static(path.join(__dirname,"/images")))
 app.use(express.json())
 app.use(cookieParser())
