@@ -32,9 +32,11 @@ const connectDB=async()=>{
 dotenv.config() // need to config here to work with env
 // app.use(cors())
 app.use(cors({
-    origin: "*", // Adjust based on your frontend URL
+    origin: ["http://localhost:5173", "https://blogwebsite-git-main-shailendra08s-projects.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allow specific methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Allow necessary headers
     credentials: true
-  }));
+}));
 
 
 app.use("/images",express.static(path.join(__dirname,"/images")))
