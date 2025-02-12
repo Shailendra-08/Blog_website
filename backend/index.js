@@ -32,7 +32,7 @@ const connectDB=async()=>{
 dotenv.config() // need to config here to work with env
 // app.use(cors())
 app.use(cors({
-    origin: ["http://localhost:5173", "https://blogwebsite-git-main-shailendra08s-projects.vercel.app"],
+    origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE"], // Allow specific methods
     allowedHeaders: ["Content-Type", "Authorization"], // Allow necessary headers
     credentials: true
