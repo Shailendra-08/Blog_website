@@ -59,7 +59,7 @@ const CreatePost = () => {
 
     // Post upload
     try {
-      const res = await axios.post(`${URL}/api/post/create`, post);
+      const res = await axios.post(`${URL}/api/post/create`, post,{ withCredentials: true});
       navigate("/post/post/"+res.data._id)
       console.log(res.data);
     } catch (err) {
